@@ -8,6 +8,7 @@ modal.classList.add("modal_active");
 const showSuccess = document.getElementsByClassName("show-success");
 const btn = showSuccess.item(0);
 btn.onclick = function () {
+    this.parentElement.parentElement.classList.remove("modal_active");
     modalSuccess.classList.add("modal_active");
 }
 
