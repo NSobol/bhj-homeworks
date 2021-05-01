@@ -11,7 +11,7 @@ dotsArray[slideIndex].classList.toggle("slider__dot_active");
 sliderPrev.onclick = function () {
     slider[slideIndex].classList.toggle("slider__item_active");
     dotsArray[slideIndex].classList.toggle("slider__dot_active");
-    slideIndex === 0 ? slideIndex = slider.length - 1 : slideIndex -= 1;
+    slideIndex = (slider.length - 1) || (slideIndex - 1);
     slider[slideIndex].classList.toggle("slider__item_active");
     dotsArray[slideIndex].classList.toggle("slider__dot_active");
 }
@@ -20,6 +20,14 @@ sliderNext.onclick = function () {
     slider[slideIndex].classList.toggle("slider__item_active");
     dotsArray[slideIndex].classList.toggle("slider__dot_active");
     slideIndex === slider.length - 1 ? slideIndex = 0 : slideIndex += 1;
+    slider[slideIndex].classList.toggle("slider__item_active");
+    dotsArray[slideIndex].classList.toggle("slider__dot_active");
+}
+
+function mySlider(num) {
+    slider[slideIndex].classList.toggle("slider__item_active");
+    dotsArray[slideIndex].classList.toggle("slider__dot_active");
+    slideIndex = num;
     slider[slideIndex].classList.toggle("slider__item_active");
     dotsArray[slideIndex].classList.toggle("slider__dot_active");
 }
