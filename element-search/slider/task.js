@@ -2,18 +2,24 @@
 const sliderPrev = document.querySelector(".slider__arrow_prev");
 const sliderNext = document.querySelector(".slider__arrow_next");
 const sliders = document.querySelectorAll(".slider__item");
+const dots = document.querySelectorAll(".slider__dot");
+let dotsArray = Array.from(dots);
 let slider = Array.from(sliders);
+let slideIndex = slider.findIndex(elem => elem.classList.contains("slider__item_active"));
+dotsArray[slideIndex].classList.toggle("slider__dot_active");
 
 sliderPrev.onclick = function () {
-    let slideIndex = slider.findIndex(elem => elem.classList.contains("slider__item_active"));
     slider[slideIndex].classList.toggle("slider__item_active");
+    dotsArray[slideIndex].classList.toggle("slider__dot_active");
     slideIndex === 0 ? slideIndex = slider.length - 1 : slideIndex -= 1;
     slider[slideIndex].classList.toggle("slider__item_active");
+    dotsArray[slideIndex].classList.toggle("slider__dot_active");
 }
 
 sliderNext.onclick = function () {
-    let slideIndex = slider.findIndex(elem => elem.classList.contains("slider__item_active"));
     slider[slideIndex].classList.toggle("slider__item_active");
+    dotsArray[slideIndex].classList.toggle("slider__dot_active");
     slideIndex === slider.length - 1 ? slideIndex = 0 : slideIndex += 1;
     slider[slideIndex].classList.toggle("slider__item_active");
+    dotsArray[slideIndex].classList.toggle("slider__dot_active");
 }
