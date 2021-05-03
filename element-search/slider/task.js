@@ -11,23 +11,25 @@ dotsArray[slideIndex].classList.toggle("slider__dot_active");
 sliderPrev.onclick = function () {
     slider[slideIndex].classList.toggle("slider__item_active");
     dotsArray[slideIndex].classList.toggle("slider__dot_active");
-    slideIndex === 0 ? slideIndex = slider.length - 1 : slideIndex -= 1;
+    slideIndex = slideIndex === 0 ? slider.length - 1 : slideIndex - 1;
     slider[slideIndex].classList.toggle("slider__item_active");
     dotsArray[slideIndex].classList.toggle("slider__dot_active");
+    getSlider(num);
 }
 
 sliderNext.onclick = function () {
+
     slider[slideIndex].classList.toggle("slider__item_active");
     dotsArray[slideIndex].classList.toggle("slider__dot_active");
-    slideIndex === slider.length - 1 ? slideIndex = 0 : slideIndex += 1;
+    slideIndex = slideIndex === slider.length - 1 ? 0 : slideIndex + 1;
     slider[slideIndex].classList.toggle("slider__item_active");
     dotsArray[slideIndex].classList.toggle("slider__dot_active");
+    getSlider(num);
 }
 
-function mySlider(num) {
+function getSlider(num) {
     slider[slideIndex].classList.toggle("slider__item_active");
     dotsArray[slideIndex].classList.toggle("slider__dot_active");
-    slideIndex = num;
-    slider[slideIndex].classList.toggle("slider__item_active");
-    dotsArray[slideIndex].classList.toggle("slider__dot_active");
+    slider[num].classList.toggle("slider__item_active");
+    dotsArray[num].classList.toggle("slider__dot_active");
 }
