@@ -8,6 +8,11 @@ let slider = Array.from(sliders);
 let slideIndex = slider.findIndex(elem => elem.classList.contains("slider__item_active"));
 dotsArray[slideIndex].classList.toggle("slider__dot_active");
 
+function getSlider(slideIndex) {
+    slider[slideIndex].classList.toggle("slider__item_active");
+    dotsArray[slideIndex].classList.toggle("slider__dot_active");
+}
+
 sliderPrev.onclick = function () {
     getSlider(slideIndex);
     slideIndex = slideIndex === 0 ? slider.length - 1 : slideIndex - 1;
@@ -20,7 +25,8 @@ sliderNext.onclick = function () {
     getSlider(slideIndex);
 }
 
-function getSlider(slideIndex) {
-    slider[slideIndex].classList.toggle("slider__item_active");
-    dotsArray[slideIndex].classList.toggle("slider__dot_active");
+for (let i = 0; i < dotsArray.length; i++) {
+    dotsArray[i].onclick = function () {
+        getSlider(i);
+    }
 }
