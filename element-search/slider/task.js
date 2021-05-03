@@ -9,27 +9,18 @@ let slideIndex = slider.findIndex(elem => elem.classList.contains("slider__item_
 dotsArray[slideIndex].classList.toggle("slider__dot_active");
 
 sliderPrev.onclick = function () {
-    slider[slideIndex].classList.toggle("slider__item_active");
-    dotsArray[slideIndex].classList.toggle("slider__dot_active");
+    getSlider(slideIndex);
     slideIndex = slideIndex === 0 ? slider.length - 1 : slideIndex - 1;
-    slider[slideIndex].classList.toggle("slider__item_active");
-    dotsArray[slideIndex].classList.toggle("slider__dot_active");
-    getSlider(num);
+    getSlider(slideIndex);
 }
 
 sliderNext.onclick = function () {
-
-    slider[slideIndex].classList.toggle("slider__item_active");
-    dotsArray[slideIndex].classList.toggle("slider__dot_active");
+    getSlider(slideIndex);
     slideIndex = slideIndex === slider.length - 1 ? 0 : slideIndex + 1;
-    slider[slideIndex].classList.toggle("slider__item_active");
-    dotsArray[slideIndex].classList.toggle("slider__dot_active");
-    getSlider(num);
+    getSlider(slideIndex);
 }
 
-function getSlider(num) {
+function getSlider(slideIndex) {
     slider[slideIndex].classList.toggle("slider__item_active");
     dotsArray[slideIndex].classList.toggle("slider__dot_active");
-    slider[num].classList.toggle("slider__item_active");
-    dotsArray[num].classList.toggle("slider__dot_active");
 }
