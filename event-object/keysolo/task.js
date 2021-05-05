@@ -21,11 +21,10 @@ class Game {
             let symbol = successeEvent.key.toLowerCase().charAt(0);
             console.log(symbol);
 
-            let current = successeEvent.currentSymbol;
+            let current = this.currentSymbol;
             console.log(current);
 
-            if (symbol === current) ? this.success() :
-                this.fail();
+            symbol === current ? this.success : this.fail;
         });
         /*
           TODO:
