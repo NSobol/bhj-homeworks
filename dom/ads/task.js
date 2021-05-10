@@ -5,7 +5,7 @@ let index = arrayRorators.findIndex(elem => elem.classList.contains("rotator__ca
 
 function getRotator(num) {
     arrayRorators[num].classList.toggle("rotator__case_active");
-    //let stylSpeed = one.getAttribute('data-speed');
+    //let stylSpeed = arrayRorators[num].getAttribute('data-speed');
     //console.log(stylSpeed);
     let stylColor = arrayRorators[num].getAttribute('data-color');
     arrayRorators[num].style.color = stylColor;
