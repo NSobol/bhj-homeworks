@@ -9,7 +9,6 @@ function getRotator(num) {
     //console.log(stylSpeed);
     let stylColor = arrayRorators[num].getAttribute('data-color');
     arrayRorators[num].style.color = stylColor;
-    console.log(stylColor);
 }
 
 function getSlider() {
