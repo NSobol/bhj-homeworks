@@ -1,17 +1,29 @@
 "use strict"
-const btns = document.querySelectorAll('.font-size');
+const btns = document.querySelectorAll('a.font-size');
 let arrayBtns = Array.from(btns);
-let index = arrayBtns.findIndex(elem => elem.classList.contains("font-size_active"));
+const books = document.querySelector('.book');
 
-const books = document.getElementsByClassName('book');
+function change(event) {
+    event.preventDefault();
+    for (let i = 0; i < arrayBtns.length; i++) {
+        arrayBtns[i].classList.remove("font-size_active");
+        books.classList.remove("book_fs-small");
+        books.classList.remove("book_fs-big");
+    }
+    let index = arrayBtns.indexOf(event.target);
+    let size = arrayBtns[index].getAttribute('data-size');
 
-
-function change(num) {
-    arrayBtns[num].classList.toggle("font-size_active");
+    if (size === "small") {
+        arrayBtns[index].classList.add("font-size_active");
+        books.classList.add("book_fs-small");
+    } else if (size === "big") {
+        arrayBtns[index].classList.add("font-size_active");
+        books.classList.add("book_fs-big");
+    } else if (size === "null") {
+        arrayBtns[index].classList.add("font-size_active");
+    }
 }
 
 for (let i = 0; i < arrayBtns.length; i++) {
-    arrayBtns[i].onclick = function () {
-        change(i);
-    }
+    arrayBtns[i].addEventListener("click", change);
 }
