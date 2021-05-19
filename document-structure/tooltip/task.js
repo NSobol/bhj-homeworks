@@ -1,21 +1,19 @@
 "use strict"
 const tooltips = document.querySelectorAll(".has-tooltip");
-console.log(tooltips);
 
 for (let link of tooltips) {
-    let hintText = link.getAttribute('title');
-    console.log(hintText);
-    link.insertAdjacentHTML("afterEnd", "<div class='tooltip'> ${hintText} </div>");
     link.addEventListener('click', getHint);
 }
-
-const hint = document.querySelector('.tooltip');
-console.log(hint);
 
 function getHint(event) {
     event.preventDefault();
     let activ = event.target;
-    if (activ) {
-        hint.classList.toggle(".tooltip_active");
-    }
+    let hintText = activ.getAttribute('title');
+    console.log(hintText);
+    activ.insertAdjacentHTML("afterEnd", `<div class='tooltip'> ${hintText} </div>`);
+    const hint = document.querySelector('.tooltip');
+    hint.classList.add("tooltip_active");
+    hint.style.top = activ.getBoundingClientRect().top + 20 + 'px';
+    hint.style.left = activ.getBoundingClientRect().left + 'px';
+    setTimeout(() => hint.classList.remove("tooltip_active"), 2000);
 }
