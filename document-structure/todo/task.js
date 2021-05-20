@@ -21,19 +21,8 @@ function getAddList(event) {
     input.value = '';
 }
 
-let listChildren = list.children;
-console.log(listChildren);
-const list1 = document.querySelectorAll('.task');
-
-const btnsDelete = document.getElementsByClassName("task__remove");
-
-for (let btn of btnsDelete) {
-    btn.addEventListener("click", () => console.log("Нашел"));
-    console.log(btn);
-}
-
-function getDelete(event) {
-    event.preventDefault();
-    let task = event.target.closest('.task');
-    task.remove();
-}
+list.addEventListener("click", event => {
+    if (event.target.classList.contains("task__remove")) {
+        list.removeChild(event.target.parentElement);
+    }
+});
