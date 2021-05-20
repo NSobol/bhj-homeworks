@@ -32,7 +32,7 @@ function findProduct(event) {
     return product = controls[3];
 }
 for (let btn of btnsBasket) {
-    btn.addEventListener('click', () => {
-
+    btn.addEventListener('click', (event) => {
+        findProduct(event);
     });
 }
