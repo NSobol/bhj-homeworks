@@ -13,7 +13,7 @@ function getHint(event) {
     console.log(hintText);
     const hint = document.querySelector('.tooltip');
     hint.innerText = hintText;
-    hint.classList.add("tooltip_active");
+    hint.classList.toggle("tooltip_active");
     hint.style.top = activ.getBoundingClientRect().top + 20 + 'px';
     hint.style.left = activ.getBoundingClientRect().left + 'px';
 }
