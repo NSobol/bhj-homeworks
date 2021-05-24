@@ -10,7 +10,8 @@ function getAddList(event) {
     event.preventDefault();
     let inputValue = input.value;
     let list = document.getElementById('tasks__list');
-    list.innerHTML += `
+    if (inputValue.trim() !== "") {
+        list.innerHTML += `
         <div class="task">
             <div class="task__title">
                ${inputValue}
@@ -18,6 +19,8 @@ function getAddList(event) {
             <a href="#" class="task__remove">&times;</a>
         </div>
         `;
+    }
+
     input.value = '';
 }
 
