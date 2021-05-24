@@ -17,8 +17,7 @@ function getAddList(event) {
                ${inputValue}
             </div>
             <a href="#" class="task__remove">&times;</a>
-        </div>
-        `;
+        </div>`;
     }
 
     input.value = '';
