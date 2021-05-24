@@ -17,8 +17,13 @@ function getHint(event) {
     }
     let activ = event.target;
     let hintText = activ.getAttribute('title');
-    hint.innerText = hintText;
-    hint.classList.toggle("tooltip_active");
-    hint.style.top = activ.getBoundingClientRect().top + 20 + 'px';
-    hint.style.left = activ.getBoundingClientRect().left + 'px';
+    if (hintText === hint.innerText) {
+        hint.classList.remove("tooltip_active");
+    } else {
+        hint.innerText = hintText;
+        hint.classList.toggle("tooltip_active");
+        hint.style.top = activ.getBoundingClientRect().top + 20 + 'px';
+        hint.style.left = activ.getBoundingClientRect().left + 'px';
+    }
+
 }
