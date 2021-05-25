@@ -11,11 +11,7 @@ function getHint(event) {
     const tooltip = document.querySelector('.tooltip_active');
     let activ = event.target;
     let hintText = activ.getAttribute('title');
-    if (hintText === hint.innerText) {
-        hint.classList.toggle("tooltip_active");
-    } else {
-        hint.classList.add("tooltip_active");
-    }
+    hintText === hint.innerText ? hint.classList.toggle("tooltip_active") : hint.classList.add("tooltip_active");
     hint.innerText = hintText;
     hint.style.top = activ.getBoundingClientRect().top + 20 + 'px';
     hint.style.left = activ.getBoundingClientRect().left + 'px';
