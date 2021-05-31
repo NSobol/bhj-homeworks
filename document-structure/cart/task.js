@@ -35,16 +35,16 @@ function addCart(event) {
     const id = product.dataset.id;
     const countFromProduct = +event.target.parentNode.querySelector('.product__quantity-value').innerText;
 
-    for (let item of cart.children) {
+    const itemsCart = Array.from(cart.children);
+    let item = itemsCart.find(item => {
 
         if (item.dataset.id === id) {
             let productCount = item.querySelector('.cart__product-count');
             let total = +productCount.innerText;
             productCount.innerText = total + countFromProduct;
-
-            return false;
+            return true;
         }
-    }
+    });
 
     const productImg = product.querySelector('.product__image').src;
     const count = product.querySelector('.product__quantity-value').innerText;
@@ -54,5 +54,8 @@ function addCart(event) {
                                 <div class="cart__product-count">${count}</div>
                             </div>`;
 
-    cart.insertAdjacentHTML('beforeend', productCart);
+
+    if (item === undefined) {
+        cart.insertAdjacentHTML('beforeend', productCart);
+    }
 }
